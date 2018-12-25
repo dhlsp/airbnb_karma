@@ -37,7 +37,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     new UglifyJsPlugin({
       uglifyOptions: {
         compress: {
-          warnings: false
+          warnings: false,
+          // 去除debugger
+          drop_debugger: true,
+          // 去除console.log
+          drop_console: true
         }
       },
       sourceMap: config.build.productionSourceMap,
@@ -68,6 +72,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: 'index.html',
       inject: true,
+      favicon: path.resolve('favicon.ico'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
