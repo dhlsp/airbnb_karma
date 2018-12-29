@@ -5,6 +5,7 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 const login = (r) => require.ensure([], () => r(require('@views/login')), 'login');
+const daysettlement = (r) => require.ensure([], () => r(require('@views/DaySettlement')), 'daysettlement');
 
 export default new Router({
   routes: [
@@ -17,6 +18,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login,
+    },
+    {
+      path: '/day_settlement',
+      name: 'daysettlement',
+      component: daysettlement,
     },
   ],
 });

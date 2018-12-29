@@ -11,7 +11,7 @@
         <span class="svg-container svg-container_login">
           <svg-icon icon-class="user"/>
         </span>
-        <el-input autofocus name="account" type="text" v-model.trim="form.account" autoComplete="on" placeholder="账号" />
+        <el-input autofocus name="account" type="text" v-model.trim="form.account" autoComplete="on" placeholder="账号" clearable/>
       </el-form-item>
       <el-form-item prop="password">
         <span class="svg-container">
@@ -26,7 +26,6 @@
       <el-button :disabled="disableLogin" type="primary" class="login-btn" :loading="loading" @click="submit">登录</el-button>
     </el-form>
   </div>
-  <!-- <i v-else class="verify-img el-icon-loading"></i> -->
 </template>
 
 <script>
@@ -50,35 +49,83 @@ export default {
     },
     submit() {
       this.$router.push({
-        path: '/account-list',
+        path: '/day_settlement',
       });
     },
   },
 };
 </script>
 
-<style rel="stylesheet/scss" lang="scss">
-$bg:#1773a9;
-$light_gray:#eee;
-/* reset element-ui css */
+<style lang="scss" scoped>
 .login-container {
-  .el-input {
-    display: inline-block;
-    height: 47px !important;
-    width: 85%;
-    input {
-      background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      &:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: #fff !important;
-      }
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: url(../../assets/imgs/bg.jpg) no-repeat center;
+  background-size: cover;
+  .login-form {
+    position: absolute;
+    left: 80%;
+    top: 50%;
+    width: 450px;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+  }
+  .title-container {
+    position: relative;
+    .title {
+      font-size: 26px;
+      font-weight: 400;
+      color: #fff;
+      margin: 20px auto 20px auto;
+      text-align: center;
+      font-weight: bold;
     }
+  }
+  .svg-container {
+    padding: 6px 6px 6px 15px;
+    color: #fff;
+    vertical-align: middle;
+    width: 30px;
+    display: inline-block;
+    &_login {
+      font-size: 20px;
+    }
+  }
+  .show-pwd {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer; // 属性规定要显示的光标的类型（形状）
+    user-select: none; // 控制着用户能否选中文本
+  }
+  .thirdparty-button {
+    position: absolute;
+    right: 35px;
+    bottom: 28px;
+  }
+  .login-btn {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .el-input {
+    display: inline-flex;
+    height: 47px !important;
+    width: 80%;
+    background: #69665800;
+    // background-color: #eee;
+    // input {
+    //   background: transparent;
+    //   border: 0px;
+    //   -webkit-appearance: none;
+    //   border-radius: 0px; // 向 div 元素添加圆角边框
+    //   padding: 12px 5px 12px 15px;
+    //   color: #eee;
+    //   height: 47px;
+    // }
   }
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -95,107 +142,18 @@ $light_gray:#eee;
 }
 </style>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-// $bg:#fff;
-$bg: url(../../assets/imgs/bg.jpg) no-repeat center center;
-$dark_gray:#889aa4;
-$light_gray:#fff;
+<style lang="scss">
 .login-container {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: $bg;
-  background-size: cover; // 让图片全屏覆盖
-  .login-form {
-    position: absolute;
-    left: 80%;
-    top: 50%;
-    width: 450px;
-    // padding: 35px 35px 15px 35px;
-    padding: 10px;
-    transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
-    // border: 1px solid #eaeaea;
-    // box-shadow: 0 0 25px #cac6c6;
-  }
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
+  .el-input {
+    input {
+      background: transparent;
+      border: 0px;
+      -webkit-appearance: none;
+      border-radius: 0px; // 向 div 元素添加圆角边框
+      padding: 12px 5px 12px 15px;
+      color: #eee;
+      height: 47px;
     }
-  }
-  .svg-container {
-    padding: 6px 5px 6px 15px;
-    color: $dark_gray;
-    vertical-align: middle; // 属性设置元素的垂直对齐方式
-    width: 30px;
-    display: inline-block;
-    &_login {
-      font-size: 20px;
-    }
-  }
-  .title-container {
-    position: relative;
-    .title {
-      font-size: 26px;
-      font-weight: 400;
-      color: $light_gray;
-      margin: 20px auto 20px auto;
-      text-align: center;
-      font-weight: bold;
-    }
-    .set-language {
-      color: #fff;
-      position: absolute;
-      top: 5px;
-      right: 0px;
-    }
-  }
-  .show-pwd {
-    position: absolute;
-    right: 10px;
-    top: 7px;
-    font-size: 16px;
-    color: $dark_gray;
-    cursor: pointer;
-    user-select: none;
-  }
-  .thirdparty-button {
-    position: absolute;
-    right: 35px;
-    bottom: 28px;
-  }
-  .login-btn {
-    width: 100%;
-    margin-bottom: 30px;
   }
 }
-
-// .verify-ipt {
-//   width: 50%;
-//   margin-right: 5%;
-//   display:inline-block;
-// }
-
-// .verify-img {
-//   position: absolute;
-//   top: 0;
-//   right: 4px;
-//   width: 35%;
-//   height: 44px;
-//   margin: 4px 0;
-//   border-radius: 2px;
-//   cursor: pointer;
-// }
-// .verify-img-loading {
-//   background-color: #FFFFFF;
-//   color: #1ABC9C;
-//   line-height: 40px;
-//   font-size: 20px;
-//   text-align: center;
-// }
 </style>
