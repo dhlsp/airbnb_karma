@@ -49,7 +49,7 @@ export default {
     },
     submit() {
       this.$router.push({
-        path: '/day_settlement',
+        path: '/test',
       });
     },
   },
