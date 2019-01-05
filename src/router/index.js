@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-// import HelloWorld from '@views/login/index';
 
 Vue.use(Router);
 
 const login = (r) => require.ensure([], () => r(require('@views/login')), 'login');
-const daysettlement = (r) => require.ensure([], () => r(require('@views/DaySettlement')), 'daysettlement');
-const test = (r) => require.ensure([], () => r(require('@views/test')), 'test');
+const layout = (r) => require.ensure([], () => r(require('@views/layout')), 'layout');
+const homepage = (r) => require.ensure([], () => r(require('@views/HomePage')), 'HomePage');
 
 export default new Router({
   routes: [
@@ -21,14 +20,19 @@ export default new Router({
       component: login,
     },
     {
-      path: '/day_settlement',
-      name: 'daysettlement',
-      component: daysettlement,
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: test,
+      path: '/',
+      name: '首页',
+      component: layout,
+      children: [
+        {
+          path: 'home-page',
+          name: '基础信息',
+          component: homepage,
+          meta: {
+            keepAlive: true,
+          },
+        },
+      ],
     },
   ],
 });

@@ -44,6 +44,9 @@ import {
   CollapseItem,
   Transfer,
   Spinner,
+  Card,
+  Progress,
+  Tooltip,
 } from 'element-ui';
 
 // element ui 加载
@@ -87,6 +90,9 @@ Vue.use(Badge);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Transfer);
+Vue.use(Card);
+Vue.use(Progress);
+Vue.use(Tooltip);
 
 Vue.use(Loading.directive);
 
