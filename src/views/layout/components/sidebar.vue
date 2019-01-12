@@ -47,6 +47,21 @@ export default {
               path: '/home-page',
               title: '信息列表',
             },
+            {
+              name: '表格一列表',
+              path: '/one-page',
+              title: '表格一列表',
+            },
+            {
+              name: '表格二列表',
+              path: '/two-page',
+              title: '表格二列表',
+            },
+            {
+              name: '表格三列表',
+              path: '/three-page',
+              title: '表格三列表',
+            },
           ],
         },
       ],
