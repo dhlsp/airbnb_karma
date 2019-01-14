@@ -62,6 +62,11 @@ export default {
               path: '/three-page',
               title: '表格三列表',
             },
+            {
+              name: '表格四列表',
+              path: '/four_table',
+              title: '表格四列表',
+            },
           ],
         },
       ],

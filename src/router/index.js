@@ -9,6 +9,7 @@ const homepage = (r) => require.ensure([], () => r(require('@views/HomePage')), 
 const onepage = (r) => require.ensure([], () => r(require('@views/OnePage')), 'OnePage');
 const twopage = (r) => require.ensure([], () => r(require('@views/TwoPage')), 'TwoPage');
 const ThreePage = (r) => require.ensure([], () => r(require('@views/ThreePage')), 'ThreePage');
+const FourTable = (r) => require.ensure([], () => r(require('@views/FourTable')), 'FourTable');
 
 export default new Router({
   routes: [
@@ -49,6 +50,11 @@ export default new Router({
           path: 'three-page',
           name: '基础3信息',
           component: ThreePage,
+        },
+        {
+          path: 'four_table',
+          name: '基础4信息',
+          component: FourTable,
         },
       ],
     },
