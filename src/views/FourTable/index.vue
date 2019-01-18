@@ -47,32 +47,55 @@ export default {
     };
   },
   methods: {
-    getSummaries(param) {
-      const { columns, data } = param;
-      const sums = [];
-      columns.forEach((column, index) => {
-        if (index === 0) {
-          sums[index] = '总价';
-          return;
-        }
-        const values = data.map(item => Number(item[column.property]));
-        // console.log(values);
-        if (!values.every(value => isNaN(value))) {
-          console.log(values);
-          sums[index] = values.reduce((prev, curr) => {
-            const value = Number(curr);
-            if (!isNaN(value)) {
-              return prev + curr;
-            }
-            return prev;
-          }, 0);
-          sums[index] += ' 元';
-        } else {
-          sums[index] = 'N/A';
+    // 自定义
+    getSummaries(params) {
+      let ret = [];
+      let { columns, data } = params;
+      let getData = (key, index) => {
+        let total = 0;
+        data.forEach((item) => {
+          total += (item[key] || 0) * 100;
+        });
+        total /= 100;
+        // total = util.moneyFormat(total);
+        ret[index] = total;
+      };
+      columns.forEach((item, index) => {
+        let property = item.property;
+        if (index !== 0) {
+          getData(property, index);
         }
       });
-      return sums;
+      ret[0] = '总计';
+      return ret;
     },
+    // 默认
+    // getSummaries(param) {
+    //   const { columns, data } = param;
+    //   const sums = [];
+    //   columns.forEach((column, index) => {
+    //     if (index === 0) {
+    //       sums[index] = '总价';
+    //       return;
+    //     }
+    //     const values = data.map(item => Number(item[column.property]));
+    //     // console.log(values);
+    //     if (!values.every(value => isNaN(value))) {
+    //       console.log(values);
+    //       sums[index] = values.reduce((prev, curr) => {
+    //         const value = Number(curr);
+    //         if (!isNaN(value)) {
+    //           return prev + curr;
+    //         }
+    //         return prev;
+    //       }, 0);
+    //       sums[index] += ' 元';
+    //     } else {
+    //       sums[index] = 'N/A';
+    //     }
+    //   });
+    //   return sums;
+    // },
   },
 };
 </script>

@@ -10,6 +10,12 @@ const onepage = (r) => require.ensure([], () => r(require('@views/OnePage')), 'O
 const twopage = (r) => require.ensure([], () => r(require('@views/TwoPage')), 'TwoPage');
 const ThreePage = (r) => require.ensure([], () => r(require('@views/ThreePage')), 'ThreePage');
 const FourTable = (r) => require.ensure([], () => r(require('@views/FourTable')), 'FourTable');
+const OneChart = (r) => require.ensure([], () => r(require('@views/OneChart')), 'OneChart');
+const PieChart = (r) => require.ensure([], () => r(require('@views/PieChart')), 'PieChart');
+const LineChart = (r) => require.ensure([], () => r(require('@views/LineChart')), 'LineChart');
+const ColumnarChart = (r) => require.ensure([], () => r(require('@views/ColumnarChart')), 'ColumnarChart');
+const TwoChart = (r) => require.ensure([], () => r(require('@views/TwoChart')), 'TwoChart');
+const RingChart = (r) => require.ensure([], () => r(require('@views/RingChart')), 'RingChart');
 
 export default new Router({
   routes: [
@@ -38,23 +44,53 @@ export default new Router({
         },
         {
           path: 'one-page',
-          name: '基础yi信息',
+          name: 'table1信息',
           component: onepage,
         },
         {
           path: 'two-page',
-          name: '基础2信息',
+          name: 'table2信息',
           component: twopage,
         },
         {
           path: 'three-page',
-          name: '基础3信息',
+          name: 'table3信息',
           component: ThreePage,
         },
         {
           path: 'four_table',
-          name: '基础4信息',
+          name: 'table4信息',
           component: FourTable,
+        },
+        {
+          path: 'one_chart',
+          name: '图形信息',
+          component: OneChart,
+        },
+        {
+          path: 'two_chart',
+          name: '图形信息',
+          component: TwoChart,
+        },
+        {
+          path: 'pie_chart',
+          name: '饼状图',
+          component: PieChart,
+        },
+        {
+          path: 'line_chart',
+          name: '折线图',
+          component: LineChart,
+        },
+        {
+          path: 'columnar_chart',
+          name: '柱状图',
+          component: ColumnarChart,
+        },
+        {
+          path: 'ring_chart',
+          name: '环形图',
+          component: RingChart,
         },
       ],
     },

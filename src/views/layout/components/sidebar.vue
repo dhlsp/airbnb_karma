@@ -47,6 +47,12 @@ export default {
               path: '/home-page',
               title: '信息列表',
             },
+          ],
+        },
+        {
+          name: 'table管理',
+          path: '/one-page',
+          children: [
             {
               name: '表格一列表',
               path: '/one-page',
@@ -66,6 +72,42 @@ export default {
               name: '表格四列表',
               path: '/four_table',
               title: '表格四列表',
+            },
+          ],
+        },
+        {
+          name: '图形管理',
+          path: '/one_chart',
+          children: [
+            {
+              name: '图形一',
+              path: '/one_chart',
+              title: '图形一',
+            },
+            {
+              name: '图形二',
+              path: '/two_chart',
+              title: '图形二',
+            },
+            {
+              name: '饼状图',
+              path: '/pie_chart',
+              title: '饼状图',
+            },
+            {
+              name: '折线图',
+              path: '/line_chart',
+              title: '折线图',
+            },
+            {
+              name: '柱状图',
+              path: '/columnar_chart',
+              title: '柱状图',
+            },
+            {
+              name: '环形图',
+              path: '/ring_chart',
+              title: '环形图',
             },
           ],
         },

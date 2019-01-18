@@ -17,10 +17,12 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.4.11",
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "^8.0.1",
     "store": "^2.0.12",
+    "v-charts": "^1.19.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vue-schart": "^1.0.0",

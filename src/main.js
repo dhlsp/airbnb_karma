@@ -9,6 +9,7 @@ import router from './router';
 import './config/elementui';
 import store from './store';
 import './icons'; // 注册svg-icon组件
+import './config/v-charts'; // 按需引入charts
 import mock from './mock';
 import './components';
 
