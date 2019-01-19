@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: 'ThreePage',
+  name: 'TableThree',
   data() {
     return {
       tableData: [{

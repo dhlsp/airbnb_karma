@@ -30,7 +30,7 @@
 import Schart from 'vue-schart';
 
 export default {
-  name: 'OneChart',
+  name: 'ChartOne',
   components: {
     Schart,
   },

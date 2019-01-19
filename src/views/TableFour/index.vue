@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'FourTable',
+  name: 'TableFour',
   data() {
     return {
       tableData6: [{

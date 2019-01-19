@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'TwoPage',
+  name: 'TableTwo',
   data() {
     return {
       count: 1,

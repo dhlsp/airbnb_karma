@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'TwoChart',
+  name: 'ChartTwo',
   data() {
     return {
       activeName: 'funnel',

@@ -1,14 +1,14 @@
 <template>
   <div>
     <el-row style="min-height: 300px;">
-      <ve-pie v-show="mercPoolData.rows.length > 0" :title="poolTitle" :legend="pieLegend" :data="mercPoolData" :settings="mercPoolSettings" width="800px" height="400px" class="echarts"></ve-pie>
+      <ve-ring v-show="mercPoolData.rows.length > 0" :title="poolTitle" :legend="pieLegend" :data="mercPoolData" :settings="mercPoolSettings" width="800px" height="400px" class="echarts"></ve-ring>
     </el-row>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PieChart',
+  name: 'ChartRing',
   data() {
     return {
       // 图例位置设置

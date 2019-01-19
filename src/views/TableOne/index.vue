@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'OnePage',
+  name: 'TableOne',
   data() {
     return {
       loadTableData: false,

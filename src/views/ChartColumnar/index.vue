@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'ColumnarChart',
+  name: 'ChartColumnar',
   data() {
     return {
       // 图例位置设置
@@ -39,6 +39,7 @@ export default {
         label: {
           normal: {
             show: true,
+            position: 'top',
             formatter(params) {
               return params.data;
             },

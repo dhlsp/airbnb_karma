@@ -6,16 +6,17 @@ Vue.use(Router);
 const login = (r) => require.ensure([], () => r(require('@views/login')), 'login');
 const layout = (r) => require.ensure([], () => r(require('@views/layout')), 'layout');
 const homepage = (r) => require.ensure([], () => r(require('@views/HomePage')), 'HomePage');
-const onepage = (r) => require.ensure([], () => r(require('@views/OnePage')), 'OnePage');
-const twopage = (r) => require.ensure([], () => r(require('@views/TwoPage')), 'TwoPage');
-const ThreePage = (r) => require.ensure([], () => r(require('@views/ThreePage')), 'ThreePage');
-const FourTable = (r) => require.ensure([], () => r(require('@views/FourTable')), 'FourTable');
-const OneChart = (r) => require.ensure([], () => r(require('@views/OneChart')), 'OneChart');
-const PieChart = (r) => require.ensure([], () => r(require('@views/PieChart')), 'PieChart');
-const LineChart = (r) => require.ensure([], () => r(require('@views/LineChart')), 'LineChart');
-const ColumnarChart = (r) => require.ensure([], () => r(require('@views/ColumnarChart')), 'ColumnarChart');
-const TwoChart = (r) => require.ensure([], () => r(require('@views/TwoChart')), 'TwoChart');
-const RingChart = (r) => require.ensure([], () => r(require('@views/RingChart')), 'RingChart');
+const TableOne = (r) => require.ensure([], () => r(require('@views/TableOne')), 'TableOne');
+const TableTwo = (r) => require.ensure([], () => r(require('@views/TableTwo')), 'TableTwo');
+const TableThree = (r) => require.ensure([], () => r(require('@views/TableThree')), 'TableThree');
+const TableFour = (r) => require.ensure([], () => r(require('@views/TableFour')), 'TableFour');
+const ChartOne = (r) => require.ensure([], () => r(require('@views/ChartOne')), 'ChartOne');
+const ChartPie = (r) => require.ensure([], () => r(require('@views/ChartPie')), 'ChartPie');
+const ChartLine = (r) => require.ensure([], () => r(require('@views/ChartLine')), 'ChartLine');
+const ChartColumnar = (r) => require.ensure([], () => r(require('@views/ChartColumnar')), 'ChartColumnar');
+const ChartTwo = (r) => require.ensure([], () => r(require('@views/ChartTwo')), 'ChartTwo');
+const ChartRing = (r) => require.ensure([], () => r(require('@views/ChartRing')), 'ChartRing');
+const ChartHot = (r) => require.ensure([], () => r(require('@views/ChartHot')), 'ChartHot');
 
 export default new Router({
   routes: [
@@ -43,54 +44,59 @@ export default new Router({
           },
         },
         {
-          path: 'one-page',
+          path: 'table_one',
           name: 'table1信息',
-          component: onepage,
+          component: TableOne,
         },
         {
-          path: 'two-page',
+          path: 'table_two',
           name: 'table2信息',
-          component: twopage,
+          component: TableTwo,
         },
         {
-          path: 'three-page',
+          path: 'table_three',
           name: 'table3信息',
-          component: ThreePage,
+          component: TableThree,
         },
         {
-          path: 'four_table',
+          path: 'table_four',
           name: 'table4信息',
-          component: FourTable,
+          component: TableFour,
         },
         {
-          path: 'one_chart',
+          path: 'chart_one',
           name: '图形信息',
-          component: OneChart,
+          component: ChartOne,
         },
         {
-          path: 'two_chart',
+          path: 'chart_two',
           name: '图形信息',
-          component: TwoChart,
+          component: ChartTwo,
         },
         {
-          path: 'pie_chart',
+          path: 'chart_pie',
           name: '饼状图',
-          component: PieChart,
+          component: ChartPie,
         },
         {
-          path: 'line_chart',
+          path: 'chart_line',
           name: '折线图',
-          component: LineChart,
+          component: ChartLine,
         },
         {
-          path: 'columnar_chart',
+          path: 'chart_columnar',
           name: '柱状图',
-          component: ColumnarChart,
+          component: ChartColumnar,
         },
         {
-          path: 'ring_chart',
+          path: 'chart_ring',
           name: '环形图',
-          component: RingChart,
+          component: ChartRing,
+        },
+        {
+          path: 'chart_hot',
+          name: '热力图',
+          component: ChartHot,
         },
       ],
     },
