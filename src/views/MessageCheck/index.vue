@@ -1,21 +1,33 @@
 <template>
-  <div class="marquee">
-    <div class="marquee_title">
-      <span>最新消息</span>
+  <el-row>
+    <div class="marquee">
+      <div class="marquee_title">
+        <span>最新消息</span>
+      </div>
+      <div class="marquee_box">
+        <ul class="marquee_list" :class="{marquee_top:animate}">
+          <li v-for="(item, index) in marqueeList" :key="index">
+            <span>{{item.name}}</span>
+            <span>在</span>
+            <span class="red"> {{item.city}}</span>
+            <span>杀敌</span>
+            <span class="red"> {{item.amount}}</span>
+            <span>万</span>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="marquee_box">
-      <ul class="marquee_list" :class="{marquee_top:animate}">
-        <li v-for="(item, index) in marqueeList" :key="index">
-          <span>{{item.name}}</span>
-          <span>在</span>
-          <span class="red"> {{item.city}}</span>
-          <span>杀敌</span>
-          <span class="red"> {{item.amount}}</span>
-          <span>万</span>
-        </li>
-      </ul>
+    <div>
+      <el-form label-width="150px" class="form-main">
+        <el-form-item label="Slider滑块">
+          <el-slider v-model="formData.num" show-input></el-slider>
+        </el-form-item>
+        <el-form-item label="Rate评分">
+          <el-rate v-model="formData.rate" :colors="['#99A9BF', '#F7BA2A', '#FF9900']" show-text></el-rate>
+        </el-form-item>
+      </el-form>
     </div>
-  </div>
+  </el-row>
 </template>
 
 <script>
@@ -46,6 +58,10 @@ export default {
           amount: '40',
         },
       ],
+      formData: {
+        num: 20,
+        rate: null,
+      },
     };
   },
   created() {
@@ -65,7 +81,7 @@ export default {
 </script>
 
 <style scoped>
-div, ul, li, span, img {
+ul, li, span {
   margin: 0;
   padding: 0;
   display: flex;
@@ -82,7 +98,7 @@ div, ul, li, span, img {
 }
 
 .marquee_title {
-  padding: 0 20px;
+  padding: 10px 20px 0px;
   height: 30px;
   font-size: 14px;
   border-right: 1px solid #d8d8d8;
@@ -121,5 +137,14 @@ div, ul, li, span, img {
 
 .red {
   color: #FF0101;
+}
+
+.form-main {
+  display: inline-block;
+  width: 700px;
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>

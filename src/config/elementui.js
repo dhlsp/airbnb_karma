@@ -51,6 +51,10 @@ import {
   TimePicker,
   Cascader,
   RadioGroup,
+  Steps,
+  Step,
+  Slider,
+  Rate,
 } from 'element-ui';
 
 // element ui 加载
@@ -101,6 +105,10 @@ Vue.use(Radio);
 Vue.use(TimePicker);
 Vue.use(Cascader);
 Vue.use(RadioGroup);
+Vue.use(Steps);
+Vue.use(Step);
+Vue.use(Slider);
+Vue.use(Rate);
 
 Vue.use(Loading.directive);
 
