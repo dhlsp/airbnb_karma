@@ -127,6 +127,17 @@ export default {
             },
           ],
         },
+        {
+          name: '信息管理',
+          path: '/message_check',
+          children: [
+            {
+              name: '信息查看',
+              path: '/message_check',
+              title: '信息查看',
+            },
+          ],
+        },
       ],
     };
   },

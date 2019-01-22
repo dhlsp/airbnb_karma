@@ -21,6 +21,8 @@ const ChartRing = (r) => require.ensure([], () => r(require('@views/ChartRing'))
 const ChartHot = (r) => require.ensure([], () => r(require('@views/ChartHot')), 'ChartHot');
 // form表单
 const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'FormOne');
+// 评价信息
+const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
 
 export default new Router({
   routes: [
@@ -49,32 +51,32 @@ export default new Router({
         },
         {
           path: 'table_one',
-          name: 'table1信息',
+          name: '列表移动列',
           component: TableOne,
         },
         {
           path: 'table_two',
-          name: 'table2信息',
+          name: '列表添加列',
           component: TableTwo,
         },
         {
           path: 'table_three',
-          name: 'table3信息',
+          name: '列表编辑列',
           component: TableThree,
         },
         {
           path: 'table_four',
-          name: 'table4信息',
+          name: '列表合计列',
           component: TableFour,
         },
         {
           path: 'chart_one',
-          name: '图形信息',
+          name: '图形一',
           component: ChartOne,
         },
         {
           path: 'chart_two',
-          name: '图形信息',
+          name: '图形二',
           component: ChartTwo,
         },
         {
@@ -104,8 +106,13 @@ export default new Router({
         },
         {
           path: 'form_one',
-          name: '表单信息',
+          name: '表单一',
           component: FormOne,
+        },
+        {
+          path: 'message_check',
+          name: '信息查看',
+          component: MessageCheck,
         },
       ],
     },
