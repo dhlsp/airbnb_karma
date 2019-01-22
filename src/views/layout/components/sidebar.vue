@@ -76,6 +76,17 @@ export default {
           ],
         },
         {
+          name: '表单管理',
+          path: '/form_one',
+          children: [
+            {
+              name: '表单一',
+              path: '/form_one',
+              title: '表单一',
+            },
+          ],
+        },
+        {
           name: '图形管理',
           path: '/one_chart',
           children: [

@@ -6,10 +6,12 @@ Vue.use(Router);
 const login = (r) => require.ensure([], () => r(require('@views/login')), 'login');
 const layout = (r) => require.ensure([], () => r(require('@views/layout')), 'layout');
 const homepage = (r) => require.ensure([], () => r(require('@views/HomePage')), 'HomePage');
+// table列表
 const TableOne = (r) => require.ensure([], () => r(require('@views/TableOne')), 'TableOne');
 const TableTwo = (r) => require.ensure([], () => r(require('@views/TableTwo')), 'TableTwo');
 const TableThree = (r) => require.ensure([], () => r(require('@views/TableThree')), 'TableThree');
 const TableFour = (r) => require.ensure([], () => r(require('@views/TableFour')), 'TableFour');
+// v-chart图表
 const ChartOne = (r) => require.ensure([], () => r(require('@views/ChartOne')), 'ChartOne');
 const ChartPie = (r) => require.ensure([], () => r(require('@views/ChartPie')), 'ChartPie');
 const ChartLine = (r) => require.ensure([], () => r(require('@views/ChartLine')), 'ChartLine');
@@ -17,6 +19,8 @@ const ChartColumnar = (r) => require.ensure([], () => r(require('@views/ChartCol
 const ChartTwo = (r) => require.ensure([], () => r(require('@views/ChartTwo')), 'ChartTwo');
 const ChartRing = (r) => require.ensure([], () => r(require('@views/ChartRing')), 'ChartRing');
 const ChartHot = (r) => require.ensure([], () => r(require('@views/ChartHot')), 'ChartHot');
+// form表单
+const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'FormOne');
 
 export default new Router({
   routes: [
@@ -97,6 +101,11 @@ export default new Router({
           path: 'chart_hot',
           name: '热力图',
           component: ChartHot,
+        },
+        {
+          path: 'form_one',
+          name: '表单信息',
+          component: FormOne,
         },
       ],
     },

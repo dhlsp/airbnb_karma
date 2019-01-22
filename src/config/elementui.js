@@ -47,6 +47,10 @@ import {
   Card,
   Progress,
   Tooltip,
+  Radio,
+  TimePicker,
+  Cascader,
+  RadioGroup,
 } from 'element-ui';
 
 // element ui 加载
@@ -93,6 +97,10 @@ Vue.use(Transfer);
 Vue.use(Card);
 Vue.use(Progress);
 Vue.use(Tooltip);
+Vue.use(Radio);
+Vue.use(TimePicker);
+Vue.use(Cascader);
+Vue.use(RadioGroup);
 
 Vue.use(Loading.directive);
 

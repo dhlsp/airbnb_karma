@@ -1,5 +1,7 @@
 <template>
-  <ve-heatmap :data="chartData" :visual-map="chartVisualMap" :grid="chartGrid" :settings="chartSettings"></ve-heatmap>
+  <div style="background: #bacde0">
+    <ve-heatmap :data="chartData" :visual-map="chartVisualMap" :grid="chartGrid" :extend='moneyExtend' :settings="chartSettings" height="600px"></ve-heatmap>
+  </div>
 </template>
 
 <script>
@@ -17,7 +19,7 @@ export default {
       max: 1500,
       type: 'piecewise',
       right: 0,
-      top: '50%',
+      top: '60%',
     };
     return {
       chartData: {
@@ -79,6 +81,21 @@ export default {
           { '日期': '2019/1/30', '时间': '0', '人数': 820 },
           { '日期': '2019/1/31', '时间': '5', '人数': 900 },
         ],
+      },
+      moneyExtend: {
+        series: {
+          label: {
+            normal: {
+              show: true,
+            },
+          },
+          itemStyle: {
+            emphasis: {
+              shadowBlur: 10,
+              shadowColor: 'rgba(0, 0, 0, 0.5)',
+            },
+          },
+        },
       },
     };
   },
