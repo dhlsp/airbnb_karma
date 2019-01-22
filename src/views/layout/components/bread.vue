@@ -3,7 +3,7 @@
     <ul>
       <li class="tags-li" v-for="(item,index) in tagsList" :class="{'active': isActive(item.path)}" :key="index">
         <router-link :to="item.path">
-          {{item.name}}
+          {{item.title}}
         </router-link>
         <span class="tags-li-icon" @click="closeTags(index)"><i class="el-icon-close"></i></span>
       </li>
@@ -39,8 +39,6 @@ export default {
     },
   },
   created() {
-    console.log(this.tagsList);
-    console.log(this.$route);
     this.setTags(this.$route);
   },
   methods: {
@@ -75,11 +73,12 @@ export default {
         return item.path === route.fullPath;
       });
       if (!isExist) {
-        if (this.tagsList.length >= 8) {
+        if (this.tagsList.length >= 15) {
           this.tagsList.shift();
         }
         this.tagsList.push({
-          title: route.meta.title,
+          // title: route.meta.title,
+          title: route.name,
           path: route.fullPath,
           name: route.matched[1].components.default.name,
         });
@@ -118,13 +117,13 @@ export default {
   float: left;
   margin: 10px 5px 10px 3px;
   border-radius: 3px;
-  font-size: 12px;
+  font-size: 14px;
   overflow: hidden;
   cursor: pointer;
-  height: 25px;
-  line-height: 25px;
+  height: 30px;
+  line-height: 30px;
   border: 1px solid #e9eaec;
-  background: #409EFF;
+  background: #ffffff;
   padding: 0 5px 0 12px;
   vertical-align: middle;
   color: #666;
@@ -136,7 +135,8 @@ export default {
   background: #f8f8f8;
 }
 .tags-li.active {
-  color: #fff;
+  color: #ffffff;
+  background-color: #2196f3;
 }
 .tags-li-title {
   float: left;

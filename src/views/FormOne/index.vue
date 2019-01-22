@@ -2,7 +2,7 @@
   <div>
     <el-form label-width="150px" class="form-main">
       <!-- <blue-loading v-show="form" w="50px" h="50px"></blue-loading> -->
-      <el-form-item label="活动名称">
+      <el-form-item :label="$t('活动名称')">
         <el-input size="small" v-model="form.name"></el-input>
       </el-form-item>
       <el-form-item label="活动经费">

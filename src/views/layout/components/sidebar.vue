@@ -45,7 +45,6 @@ export default {
             {
               name: '信息列表',
               path: '/home-page',
-              title: '信息列表',
             },
           ],
         },
@@ -56,22 +55,18 @@ export default {
             {
               name: '列表移动列',
               path: '/table_one',
-              title: '列表移动列',
             },
             {
               name: '列表添加列',
               path: '/table_two',
-              title: '列表添加列',
             },
             {
               name: '列表编辑列',
               path: '/table_three',
-              title: '列表编辑列',
             },
             {
               name: '列表合计列',
               path: '/table_four',
-              title: '列表合计列',
             },
           ],
         },
@@ -82,7 +77,6 @@ export default {
             {
               name: '表单一',
               path: '/form_one',
-              title: '表单一',
             },
           ],
         },
@@ -93,37 +87,30 @@ export default {
             {
               name: '图形一',
               path: '/chart_one',
-              title: '图形一',
             },
             {
               name: '图形二',
               path: '/chart_two',
-              title: '图形二',
             },
             {
               name: '饼状图',
               path: '/chart_pie',
-              title: '饼状图',
             },
             {
               name: '折线图',
               path: '/chart_line',
-              title: '折线图',
             },
             {
               name: '柱状图',
               path: '/chart_columnar',
-              title: '柱状图',
             },
             {
               name: '环形图',
               path: '/chart_ring',
-              title: '环形图',
             },
             {
               name: '热力图',
               path: '/chart_hot',
-              title: '热力图',
             },
           ],
         },
@@ -134,7 +121,6 @@ export default {
             {
               name: '信息查看',
               path: '/message_check',
-              title: '信息查看',
             },
           ],
         },
