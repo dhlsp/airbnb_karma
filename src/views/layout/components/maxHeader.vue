@@ -44,7 +44,7 @@
   </div>
 </template>
 <script>
-import bus from '@components/bus';
+import bus from '@js/bus';
 
 export default {
   name: 'maxHeader',

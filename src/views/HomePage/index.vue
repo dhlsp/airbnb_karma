@@ -116,7 +116,7 @@
 
 <script>
 import schart from 'vue-schart';
-import bus from '@components/bus';
+import bus from '@js/bus';
 
 export default {
   name: 'HomePage',

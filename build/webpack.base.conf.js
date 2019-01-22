@@ -49,6 +49,7 @@ module.exports = {
       '@components': resolve('src/components'),
       '@store': resolve('src/store'),
       '@router': resolve('src/router'),
+      '@js': resolve('src/assets/js'),
     }
   },
   module: {
