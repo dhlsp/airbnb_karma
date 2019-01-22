@@ -11,6 +11,7 @@ import store from './store';
 import './icons'; // 注册svg-icon组件
 import './config/v-charts'; // 按需引入charts
 import mock from './mock';
+import i18n from './lang'; // 多语言
 import './components';
 
 Vue.prototype.mock = mock;
@@ -22,6 +23,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  i18n,
   components: { App },
   template: '<App/>',
 });

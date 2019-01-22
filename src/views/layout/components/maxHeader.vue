@@ -13,6 +13,10 @@
             <i class="el-icon-rank"></i>
         </el-tooltip>
         </div>
+        <!-- 中英文 -->
+        <div class="btn-lang">
+          <lang-select></lang-select>
+        </div>
         <!-- 消息中心 -->
         <div class="btn-bell">
           <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
@@ -147,6 +151,14 @@ export default {
   transform: rotate(45deg);
   margin-right: 5px;
   font-size: 24px;
+}
+.btn-lang {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
 }
 .btn-bell, .btn-fullscreen {
   position: relative;
