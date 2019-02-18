@@ -35,13 +35,28 @@ export default {
         x: 'center',
       },
       mercPoolSettings: {
-        radius: 100,
+        // radius: 100,
+        radius: ['50%', '70%'],
+        avoidLabelOverlap: false,
         label: {
           normal: {
-            show: true,
+            show: false,
+            // position: 'center',
             formatter(params) {
               return params.name + ' ' + params.percent + '%';
             },
+          },
+          emphasis: {
+            show: true,
+            textStyle: {
+              fontSize: '20',
+              fontWeight: 'bold',
+            },
+          },
+        },
+        labelLine: {
+          normal: {
+            show: false,
           },
         },
       },
