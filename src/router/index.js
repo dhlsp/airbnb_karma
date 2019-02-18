@@ -19,6 +19,7 @@ const ChartColumnar = (r) => require.ensure([], () => r(require('@views/ChartCol
 const ChartTwo = (r) => require.ensure([], () => r(require('@views/ChartTwo')), 'ChartTwo');
 const ChartRing = (r) => require.ensure([], () => r(require('@views/ChartRing')), 'ChartRing');
 const ChartHot = (r) => require.ensure([], () => r(require('@views/ChartHot')), 'ChartHot');
+const ChartPool = (r) => require.ensure([], () => r(require('@views/ChartPool')), 'ChartPool');
 // form表单
 const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'FormOne');
 const FormValidation = (r) => require.ensure([], () => r(require('@views/FormValidation')), 'FormValidation');
@@ -105,6 +106,11 @@ export default new Router({
           path: 'chart_hot',
           name: '热力图',
           component: ChartHot,
+        },
+        {
+          path: 'chart_pool',
+          name: '图表池',
+          component: ChartPool,
         },
         {
           path: 'form_one',

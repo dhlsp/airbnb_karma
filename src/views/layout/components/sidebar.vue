@@ -120,6 +120,10 @@ export default {
               name: '热力图',
               path: '/chart_hot',
             },
+            {
+              name: '图表池',
+              path: '/chart_pool',
+            },
           ],
         },
         {
