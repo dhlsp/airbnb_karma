@@ -21,6 +21,8 @@ const ChartRing = (r) => require.ensure([], () => r(require('@views/ChartRing'))
 const ChartHot = (r) => require.ensure([], () => r(require('@views/ChartHot')), 'ChartHot');
 // form表单
 const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'FormOne');
+const FormValidation = (r) => require.ensure([], () => r(require('@views/FormValidation')), 'FormValidation');
+const FormCron = (r) => require.ensure([], () => r(require('@views/FormCron')), 'FormCron');
 // 评价信息
 const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
 
@@ -108,6 +110,16 @@ export default new Router({
           path: 'form_one',
           name: '表单一',
           component: FormOne,
+        },
+        {
+          path: 'form_validation',
+          name: '表单验证',
+          component: FormValidation,
+        },
+        {
+          path: 'form_cron',
+          name: '表单Cron(定时策略)',
+          component: FormCron,
         },
         {
           path: 'message_check',

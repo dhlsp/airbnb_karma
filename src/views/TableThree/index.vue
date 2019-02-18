@@ -1,6 +1,7 @@
 <template>
   <div>
     <el-button size="medium" type="primary" @click="addDemo">添加行</el-button>
+    <el-button size="medium" type="danger" @click="delDemo">清除</el-button>
 
     <el-table :data="tableData" @current-change="handleCurrentChange" ref="demoTable" highlight-current-row border class="tb-edit" style="width: 100%">
       <el-table-column type="index" width="50"></el-table-column>
@@ -106,7 +107,11 @@ export default {
       this.currentRow = val;
     },
     handleDelete(index) {
-      this.tableData.splice(index, 1);
+      // this.tableData.splice(index, 1);
+      this.tableData.splice(index);
+    },
+    delDemo() {
+      this.tableData.splice('');
     },
   },
 };

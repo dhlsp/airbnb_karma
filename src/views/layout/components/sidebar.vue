@@ -78,6 +78,14 @@ export default {
               name: '表单一',
               path: '/form_one',
             },
+            {
+              name: '表单验证',
+              path: '/form_validation',
+            },
+            {
+              name: '表单Cron(定时策略)',
+              path: '/form_cron',
+            },
           ],
         },
         {

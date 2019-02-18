@@ -12,7 +12,7 @@
               <span v-else>{{scope.row[v.field]}}</span>
             </template>
           </el-table-column>
-          <el-table-column fixed="right" label="操作" min-width="150" header-align="center" align="center">
+          <el-table-column fixed="right" label="操作" min-width="300" header-align="center" align="center">
             <template slot-scope="scope">
               <el-button type="primary" @click="pwdChange(scope.row,scope.$index,true)">{{scope.row.isSet?'保存':"修改"}}</el-button>
               <el-button type="danger" v-if="!scope.row.isSet" @click="del(scope.row,scope.$index,false)">删除</el-button>

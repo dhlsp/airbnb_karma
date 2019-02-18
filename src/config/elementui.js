@@ -55,6 +55,8 @@ import {
   Step,
   Slider,
   Rate,
+  InputNumber,
+  Popover,
 } from 'element-ui';
 
 // element ui 加载
@@ -109,6 +111,8 @@ Vue.use(Steps);
 Vue.use(Step);
 Vue.use(Slider);
 Vue.use(Rate);
+Vue.use(InputNumber);
+Vue.use(Popover);
 
 Vue.use(Loading.directive);
 

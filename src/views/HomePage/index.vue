@@ -212,7 +212,7 @@ export default {
     handleListener() {
       bus.$on('collapse', this.handleBus);
       // 调用renderChart方法对图表进行重新渲染
-      // window.addEventListener('resize', this.renderChart);
+      window.addEventListener('resize', this.renderChart);
     },
     handleBus() {
       setTimeout(() => {
