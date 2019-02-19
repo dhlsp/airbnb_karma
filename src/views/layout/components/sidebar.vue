@@ -136,6 +136,16 @@ export default {
             },
           ],
         },
+        {
+          name: '错误处理',
+          path: '/error_404',
+          children: [
+            {
+              name: '404页面',
+              path: '/error_404',
+            },
+          ],
+        },
       ],
     };
   },
