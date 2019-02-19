@@ -138,6 +138,10 @@ export default {
               name: '消息查看',
               path: '/message_tabs',
             },
+            {
+              name: '信息拖拽',
+              path: '/dialog_drag',
+            },
           ],
         },
         {

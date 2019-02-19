@@ -27,6 +27,7 @@ const FormCron = (r) => require.ensure([], () => r(require('@views/FormCron')), 
 // 评价信息
 const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
 const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
+const DialogDrag = (r) => require.ensure([], () => r(require('@views/DialogDrag')), 'DialogDrag');
 // 错误处理
 const Error404 = (r) => require.ensure([], () => r(require('@views/Error404')), 'Error404');
 
@@ -139,6 +140,11 @@ export default new Router({
           path: 'message_tabs',
           name: '消息查看',
           component: MessageTabs,
+        },
+        {
+          path: 'dialog_drag',
+          name: '信息拖拽',
+          component: DialogDrag,
         },
         {
           path: 'error_404',
