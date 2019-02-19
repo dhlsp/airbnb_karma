@@ -134,6 +134,10 @@ export default {
               name: '信息查看',
               path: '/message_check',
             },
+            {
+              name: '消息查看',
+              path: '/message_tabs',
+            },
           ],
         },
         {

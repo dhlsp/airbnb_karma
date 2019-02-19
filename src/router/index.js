@@ -26,6 +26,7 @@ const FormValidation = (r) => require.ensure([], () => r(require('@views/FormVal
 const FormCron = (r) => require.ensure([], () => r(require('@views/FormCron')), 'FormCron');
 // 评价信息
 const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
+const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
 // 错误处理
 const Error404 = (r) => require.ensure([], () => r(require('@views/Error404')), 'Error404');
 
@@ -133,6 +134,11 @@ export default new Router({
           path: 'message_check',
           name: '信息查看',
           component: MessageCheck,
+        },
+        {
+          path: 'message_tabs',
+          name: '消息查看',
+          component: MessageTabs,
         },
         {
           path: 'error_404',
