@@ -10,6 +10,11 @@
           <template slot="append">元</template>
         </el-input>
       </el-form-item>
+      <el-form-item :label="$t('活动编号')">
+          <el-input v-model.trim="form.org_req_no" size="small" :placeholder="$t('请求单号')">
+            <el-button slot="append" @click="createRandomNum">随机生成</el-button>
+          </el-input>
+        </el-form-item>
       <el-form-item label="活动区域">
         <!-- 下拉宽的默认选择 -->
         <no-request-select name="citySelect" v-model="form.regions" tip="区域"></no-request-select>
@@ -270,12 +275,24 @@ export default {
         type: [],
         resource: '',
         desc: '',
+        org_req_no: '',
       },
     };
+  },
+  created() {
+    this.createRandomNum();
   },
   methods: {
     onSubmit() {
       console.log('this.form', this.form);
+    },
+    createRandomNum() {
+      this.form.org_req_no = '';
+      let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      // let possible = '0123456789';
+      for (let i = 0; i < 20; i++) {
+        this.form.org_req_no += possible.charAt(Math.floor(Math.random() * possible.length));
+      }
     },
   },
 };
