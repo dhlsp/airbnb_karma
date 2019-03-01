@@ -86,6 +86,10 @@ export default {
               name: '表单Cron(定时策略)',
               path: '/form_cron',
             },
+            {
+              name: '时间配置',
+              path: '/form_set_config',
+            },
           ],
         },
         {

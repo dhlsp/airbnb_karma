@@ -24,6 +24,7 @@ const ChartPool = (r) => require.ensure([], () => r(require('@views/ChartPool'))
 const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'FormOne');
 const FormValidation = (r) => require.ensure([], () => r(require('@views/FormValidation')), 'FormValidation');
 const FormCron = (r) => require.ensure([], () => r(require('@views/FormCron')), 'FormCron');
+const FormSetConfig = (r) => require.ensure([], () => r(require('@views/FormSetConfig')), 'FormSetConfig');
 // 评价信息
 const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
 const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
@@ -130,6 +131,11 @@ export default new Router({
           path: 'form_cron',
           name: '表单Cron(定时策略)',
           component: FormCron,
+        },
+        {
+          path: 'form_set_config',
+          name: '时间配置',
+          component: FormSetConfig,
         },
         {
           path: 'message_check',
