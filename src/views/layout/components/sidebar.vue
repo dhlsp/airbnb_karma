@@ -90,6 +90,10 @@ export default {
               name: '时间配置',
               path: '/form_set_config',
             },
+            {
+              name: '生成二维码',
+              path: '/form_qrcode',
+            },
           ],
         },
         {

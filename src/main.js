@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import 'babel-polyfill';
+import VueAwesomeSwiper from 'vue-awesome-swiper'; // 轮播组件
 import 'normalize.css/normalize.css';
 import '@/styles/index.scss';
 import App from './App';
@@ -15,7 +16,7 @@ import i18n from './lang'; // 多语言
 import './components';
 
 Vue.prototype.mock = mock;
-
+Vue.use(VueAwesomeSwiper);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

@@ -25,6 +25,7 @@ const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'F
 const FormValidation = (r) => require.ensure([], () => r(require('@views/FormValidation')), 'FormValidation');
 const FormCron = (r) => require.ensure([], () => r(require('@views/FormCron')), 'FormCron');
 const FormSetConfig = (r) => require.ensure([], () => r(require('@views/FormSetConfig')), 'FormSetConfig');
+const FormQrcode = (r) => require.ensure([], () => r(require('@views/FormQrcode')), 'FormQrcode');
 // 评价信息
 const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
 const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
@@ -136,6 +137,11 @@ export default new Router({
           path: 'form_set_config',
           name: '时间配置',
           component: FormSetConfig,
+        },
+        {
+          path: 'form_qrcode',
+          name: '生成二维码',
+          component: FormQrcode,
         },
         {
           path: 'message_check',
