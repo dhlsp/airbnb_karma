@@ -34,20 +34,6 @@ export default {
   watch: {
     src(val) {
       if (val) {
-        // let AwesomeQR = require('awesome-qr');
-        // let logo = new Image();
-        // logo.crossOrigin = 'Anonymous';
-        // logo.onload = () => {
-        //   AwesomeQR.create({
-        //     text: 'Makito loves Kafuu Chino.',
-        //     size: 800,
-        //     margin: 20,
-        //     logoImage: logo,
-        //     bindElement: 'qrcode',
-        //   });
-        // };
-        // logo.src = 'https://avatars3.githubusercontent.com/u/5277268?s=460&v=4';
-        // this.imgBase64 = logo.src;
         QRCode.toDataURL(val)
           .then((url) => {
             console.log('url', url);
