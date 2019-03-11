@@ -13,10 +13,13 @@ import './icons'; // 注册svg-icon组件
 import './config/v-charts'; // 按需引入charts
 import mock from './mock';
 import i18n from './lang'; // 多语言
+// eslint-disable-next-line import/first
+import VueQr from 'vue-qr'; // 二维码
 import './components';
 
 Vue.prototype.mock = mock;
 Vue.use(VueAwesomeSwiper);
+Vue.use(VueQr);
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

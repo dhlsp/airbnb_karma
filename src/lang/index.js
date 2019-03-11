@@ -23,6 +23,7 @@ const messages = {
 const i18n = new VueI18n({
   locale: store.get('language') || 'zh', // set locale
   messages, // set locale messages
+  silentTranslationWarn: true,
 });
 
 ElementLocale.i18n((key, value) => i18n.t(key, value));

@@ -50,6 +50,8 @@ module.exports = {
       '@store': resolve('src/store'),
       '@router': resolve('src/router'),
       '@js': resolve('src/assets/js'),
+      '@lang': resolve('src/lang'),
+      '@filters': resolve('src/filters'),
     }
   },
   module: {

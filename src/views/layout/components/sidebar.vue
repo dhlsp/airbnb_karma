@@ -46,6 +46,10 @@ export default {
               name: '信息列表',
               path: '/home-page',
             },
+            {
+              name: '生成二维码',
+              path: '/fix_qr_code',
+            },
           ],
         },
         {
@@ -67,6 +71,10 @@ export default {
             {
               name: '列表合计列',
               path: '/table_four',
+            },
+            {
+              name: '列表合并',
+              path: '/table_five',
             },
           ],
         },

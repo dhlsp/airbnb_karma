@@ -2,6 +2,8 @@ const DOWNLINEREG = /_([a-zA-Z])/g;
 const MINSCREENPX = 1152;
 const CHINESE = /.*[\u4e00-\u9fa5]+.*$/;
 const SPACE = /\s/;
+const NUMS = '0123456789';
+const NUMSANDLETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
 const util = {
   // 深复制
@@ -62,6 +64,15 @@ const util = {
     }
 
     return this.getType(obj) === type;
+  },
+
+  // 判断是不是正整数
+  isNormalInteger(str) {
+    let n = str;
+    if (this.isString(str)) {
+      n = Math.floor(Number(str));
+    }
+    return n !== Infinity && String(n) === str && n >= 0;
   },
 
   // 是否是对象
@@ -160,22 +171,23 @@ const util = {
   },
 
   // 修复toFixed
-  // toFixed(n, s) {
-  //   let changenum = (parseInt(n * Math.pow(10, s) + 0.5, 10) / Math.pow(10, s)).toString();
-  //   let index = changenum.indexOf('.');
-  //   if (index < 0 && s > 0) {
-  //     changenum += '.';
-  //     for (let i = 0; i < s; i++) {
-  //       changenum += '0';
-  //     }
-  //   } else {
-  //     index = changenum.length - index;
-  //     for (let i = 0; i < (s - index) + 1; i++) {
-  //       changenum += '0';
-  //     }
-  //   }
-  //   return changenum;
-  // },
+  toFixed(n, s) {
+    // eslint-disable-next-line no-restricted-properties
+    let changenum = (parseInt(n * Math.pow(10, s) + 0.5, 10) / Math.pow(10, s)).toString();
+    let index = changenum.indexOf('.');
+    if (index < 0 && s > 0) {
+      changenum += '.';
+      for (let i = 0; i < s; i++) {
+        changenum += '0';
+      }
+    } else {
+      index = changenum.length - index;
+      for (let i = 0; i < (s - index) + 1; i++) {
+        changenum += '0';
+      }
+    }
+    return changenum;
+  },
 
   // 是否相等
   isEqual(a, b) {
@@ -219,6 +231,9 @@ const util = {
     return SPACE.test(str);
   },
   moneyFormat(n) {
+    if (n === undefined || n === null || n === '') {
+      return '0';
+    }
     let isStr = this.isString(n);
     let isNum = this.isNumeric(n);
     if (!isStr && !isNum) {
@@ -315,6 +330,7 @@ const util = {
       type: 'all',
       beforeSeparator: '-',
       afterSeparator: '-',
+      betweenSeparator: ' ',
     };
 
     if (this.isObject(params)) {
@@ -340,7 +356,17 @@ const util = {
     if (defaultParams.type === 'YMD') {
       return `${year}${defaultParams.beforeSeparator}${month}${defaultParams.beforeSeparator}${day}`;
     }
-    return `${year}${defaultParams.beforeSeparator}${month}${defaultParams.beforeSeparator}${day} ${hour}${defaultParams.afterSeparator}${minute}${defaultParams.afterSeparator}${second}`;
+    return `${year}${defaultParams.beforeSeparator}${month}${defaultParams.beforeSeparator}${day}${defaultParams.betweenSeparator}${hour}${defaultParams.afterSeparator}${minute}${defaultParams.afterSeparator}${second}`;
+  },
+  // 字符串转对象
+  strToObj(str) {
+    if (this.isNumber(str)) {
+      str = `${str}`;
+    }
+    if (this.isString(str) && isNaN(str)) {
+      return JSON.parse(str.replace(/\\/g, '').replace(/\"\[/g, '[').replace(/\]\"/g, ']'));
+    }
+    return str;
   },
   // add(arg1, arg2) {
   //   let r1;
@@ -465,3 +491,13 @@ export const screenW = getScreenW();
 
 // 是否是小屏幕
 export const isMinScreen = screenW <= MINSCREENPX;
+
+// 随机生成
+export function randomStr(n, isPureNum = false) {
+  let possible = isPureNum ? NUMS : NUMSANDLETTERS;
+  let ret = '';
+  for (let i = 0; i < n; i++) {
+    ret += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return ret;
+}

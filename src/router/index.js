@@ -6,11 +6,13 @@ Vue.use(Router);
 const login = (r) => require.ensure([], () => r(require('@views/login')), 'login');
 const layout = (r) => require.ensure([], () => r(require('@views/layout')), 'layout');
 const homepage = (r) => require.ensure([], () => r(require('@views/HomePage')), 'HomePage');
+const FixQRCode = (r) => require.ensure([], () => r(require('@views/FixQRCode')), 'FixQRCode');
 // table列表
 const TableOne = (r) => require.ensure([], () => r(require('@views/TableOne')), 'TableOne');
 const TableTwo = (r) => require.ensure([], () => r(require('@views/TableTwo')), 'TableTwo');
 const TableThree = (r) => require.ensure([], () => r(require('@views/TableThree')), 'TableThree');
 const TableFour = (r) => require.ensure([], () => r(require('@views/TableFour')), 'TableFour');
+const TableFive = (r) => require.ensure([], () => r(require('@views/TableFive')), 'TableFive');
 // v-chart图表
 const ChartOne = (r) => require.ensure([], () => r(require('@views/ChartOne')), 'ChartOne');
 const ChartPie = (r) => require.ensure([], () => r(require('@views/ChartPie')), 'ChartPie');
@@ -59,6 +61,11 @@ export default new Router({
           },
         },
         {
+          path: 'fix_qr_code',
+          name: '生成二维码',
+          component: FixQRCode,
+        },
+        {
           path: 'table_one',
           name: '列表移动列',
           component: TableOne,
@@ -77,6 +84,11 @@ export default new Router({
           path: 'table_four',
           name: '列表合计列',
           component: TableFour,
+        },
+        {
+          path: 'table_five',
+          name: '列表合并',
+          component: TableFive,
         },
         {
           path: 'chart_one',
