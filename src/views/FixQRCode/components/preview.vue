@@ -1,7 +1,10 @@
 <template>
   <el-dialog :title="$t('预览')" :visible.sync="isOpen" custom-class="small">
-    <el-row class="text-center">
+    <!-- <el-row class="text-center">
       <img v-show="!showLoad" :src="imgBase64" alt="图片" width="200" height="200" />
+    </el-row> -->
+    <el-row class="text-center">
+      <vue-qr style="float:left;margin-left:120px;padding: 10px;width: 150px;" :logoSrc="config.imagePath" :text="config.value" :margin="0"></vue-qr>
     </el-row>
     <!-- <el-row class="loading" v-show="showLoad">
       <blue-loading v-show="showLoad" w="50px" h="50px"></blue-loading>
@@ -10,6 +13,7 @@
 </template>
 
 <script>
+import VueQr from 'vue-qr';
 import QRCode from 'qrcode';
 
 export default {
@@ -29,11 +33,16 @@ export default {
       isOpen: false,
       showLoad: true,
       imgBase64: '',
+      config: {
+        value: 'http://www.baidu.com', // 显示的值、跳转的地址
+        imagePath: require('../../../assets/logo.png'), // 中间logo的地址
+      },
     };
   },
   watch: {
     src(val) {
       if (val) {
+        this.config.value = val;
         QRCode.toDataURL(val)
           .then((url) => {
             console.log('url', url);
@@ -49,6 +58,9 @@ export default {
       this.isOpen = val;
       this.showLoad = val;
     },
+  },
+  components: {
+    VueQr,
   },
 };
 </script>

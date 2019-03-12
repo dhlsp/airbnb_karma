@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
+import VueQr from 'vue-qr'; // 二维码
 import 'babel-polyfill';
 import VueAwesomeSwiper from 'vue-awesome-swiper'; // 轮播组件
 import 'normalize.css/normalize.css';
@@ -18,6 +19,10 @@ import './components';
 Vue.prototype.mock = mock;
 Vue.use(VueAwesomeSwiper);
 Vue.config.productionTip = false;
+
+export default {
+  components: { VueQr },
+};
 
 /* eslint-disable no-new */
 new Vue({
