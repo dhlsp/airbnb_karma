@@ -2,7 +2,8 @@
   <div class="header">
     <!-- 折叠按钮 -->
     <div class="collapse-btn">
-      <i class="el-icon-menu"></i>
+      <!-- <i class="el-icon-menu"></i> -->
+      <img src="static/img/left.png" style="width: 80px;height: 60px;">
     </div>
     <div class="logo">后台管理系统</div>
     <div class="header-right">
@@ -129,7 +130,8 @@ export default {
 }
 .collapse-btn {
   float: left;
-  padding: 0 21px;
+  /* padding: 0 10px; */
+  padding: 5px;
   cursor: pointer;
   line-height: 70px;
 }

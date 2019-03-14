@@ -32,7 +32,7 @@
         </el-col>
       </el-form-item>
       <el-form-item label="活动开启">
-        <el-switch v-model="form.delivery"></el-switch>
+        <el-switch v-model="form.delivery" active-value="1" inactive-value="0"></el-switch>
       </el-form-item>
       <el-form-item label="活动性质">
         <el-checkbox-group v-model="form.type">

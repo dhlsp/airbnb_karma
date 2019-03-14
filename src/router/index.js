@@ -32,6 +32,7 @@ const FormQrcode = (r) => require.ensure([], () => r(require('@views/FormQrcode'
 const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCheck')), 'MessageCheck');
 const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
 const DialogDrag = (r) => require.ensure([], () => r(require('@views/DialogDrag')), 'DialogDrag');
+const MessageMoney = (r) => require.ensure([], () => r(require('@views/MessageMoney')), 'MessageMoney');
 // 错误处理
 const Error404 = (r) => require.ensure([], () => r(require('@views/Error404')), 'Error404');
 
@@ -169,6 +170,11 @@ export default new Router({
           path: 'dialog_drag',
           name: '信息拖拽',
           component: DialogDrag,
+        },
+        {
+          path: 'message_money',
+          name: '钱包信息',
+          component: MessageMoney,
         },
         {
           path: 'error_404',

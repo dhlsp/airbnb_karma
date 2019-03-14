@@ -158,6 +158,10 @@ export default {
               name: '信息拖拽',
               path: '/dialog_drag',
             },
+            {
+              name: '钱包信息',
+              path: '/message_money',
+            },
           ],
         },
         {
