@@ -20,9 +20,9 @@ Vue.prototype.mock = mock;
 Vue.use(VueAwesomeSwiper);
 Vue.config.productionTip = false;
 
-export default {
-  components: { VueQr },
-};
+// export default {
+//   components: { VueQr },
+// };
 
 /* eslint-disable no-new */
 new Vue({
@@ -30,6 +30,6 @@ new Vue({
   router,
   store,
   i18n,
-  components: { App },
+  components: { App, VueQr },
   template: '<App/>',
 });

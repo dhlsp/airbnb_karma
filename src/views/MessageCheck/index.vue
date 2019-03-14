@@ -27,6 +27,14 @@
         </el-form-item>
       </el-form>
     </div>
+    <note>
+      <el-row style="text-align: left;font-size: 18px;">
+        <el-col>操作说明</el-col>
+        <el-col>1、申请商户号</el-col>
+        <el-col>2、查询状态</el-col>
+        <el-col>3、修改外部商户号</el-col>
+      </el-row>
+    </note>
   </el-row>
 </template>
 
