@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row style="min-height: 300px;">
-      <ve-line v-show="mercPoolAmount.rows.length > 0" :title="moneyTitle" :legend="pieLegend" :extend="moneyExtend" :data="mercPoolAmount" width="800px" height="400px" class="echarts"></ve-line>
+      <ve-line v-show="mercPoolAmount.rows.length > 0" :title="moneyTitle" :legend="pieLegend" :extend="moneyExtend" :data="mercPoolAmount" :grid="mercMoneyGrid" width="800px" height="400px" class="echarts"></ve-line>
     </el-row>
   </div>
 </template>
@@ -35,6 +35,9 @@ export default {
           { '时间': '2018', '交易金额': 2314, '交易笔数': 800, '退款金额': 550, '退款笔数': 10, '剩余数量': 200, '交易数量': 5200, '进货金额': 6200 },
           { '时间': '2019', '交易金额': 4560, '交易笔数': 862, '退款金额': 400, '退款笔数': 10, '剩余数量': 50, '交易数量': 1200, '进货金额': 8200 },
         ],
+      },
+      mercMoneyGrid: {
+        right: '100px',
       },
       moneyTitle: {
         text: '交易',

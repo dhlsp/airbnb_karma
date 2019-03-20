@@ -39,6 +39,7 @@
 </template>
 
 <script>
+// import QRCode from 'qrcode';
 import list from './components/list';
 import error from './components/error';
 
@@ -343,7 +344,8 @@ export default {
       }
 
       &:hover {
-        background: #333;
+        // background: #333;
+        color: aliceblue;
       }
       input[type="file"] {
         opacity: 0;

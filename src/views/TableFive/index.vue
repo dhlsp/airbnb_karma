@@ -85,12 +85,19 @@ export default {
         textStyle: {
           fontSize: 20,
         },
-        // formatter: '{name} {}',
-        formatter(params) {
-          console.log(params);
-          console.log(params.name);
-          return params.name + ' ' + params.percent + '%';
+        normal: {
+          label: {
+            show: true,
+            formatter: '{b} : {c} ({d}%)',
+          },
+          labelLine: { show: true },
         },
+        // formatter: '{name} {}',
+        // formatter(params) {
+        //   console.log(params);
+        //   console.log(params.name);
+        //   return params.name + ' ' + params.percent + '%';
+        // },
       },
       mercPoolData: {
         columns: ['商品', '交易数量'],

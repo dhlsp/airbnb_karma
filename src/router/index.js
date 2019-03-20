@@ -22,6 +22,7 @@ const ChartTwo = (r) => require.ensure([], () => r(require('@views/ChartTwo')), 
 const ChartRing = (r) => require.ensure([], () => r(require('@views/ChartRing')), 'ChartRing');
 const ChartHot = (r) => require.ensure([], () => r(require('@views/ChartHot')), 'ChartHot');
 const ChartPool = (r) => require.ensure([], () => r(require('@views/ChartPool')), 'ChartPool');
+const ChartAnalysis = (r) => require.ensure([], () => r(require('@views/ChartAnalysis')), 'ChartAnalysis');
 // form表单
 const FormOne = (r) => require.ensure([], () => r(require('@views/FormOne')), 'FormOne');
 const FormValidation = (r) => require.ensure([], () => r(require('@views/FormValidation')), 'FormValidation');
@@ -130,6 +131,11 @@ export default new Router({
           path: 'chart_pool',
           name: '图表池',
           component: ChartPool,
+        },
+        {
+          path: 'chart_analysis',
+          name: '图表统计',
+          component: ChartAnalysis,
         },
         {
           path: 'form_one',

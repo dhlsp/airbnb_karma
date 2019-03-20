@@ -52,7 +52,9 @@ export default {
   methods: {
     isClick(view) {
       this.$emit('child-say');
-      this.changeCodeId(view);
+      console.log('this.$emit();', this.$emit('child-say'));
+      console.log('view', view);
+      // this.changeCodeId(view);
     },
     ...mapActions([
       'changeCodeId',

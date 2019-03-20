@@ -140,6 +140,10 @@ export default {
               name: '图表池',
               path: '/chart_pool',
             },
+            {
+              name: '图表统计',
+              path: '/chart_analysis',
+            },
           ],
         },
         {
