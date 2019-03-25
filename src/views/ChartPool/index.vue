@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-row style="min-height: 300px;">
-      <ve-pie v-show="mercPoolData.rows.length > 0" :title="poolTitle" :legend="pieLegend" :data="mercPoolData" :settings="mercPoolSettings" :extend="mercPoolExtend" width="800px" height="400px" class="echarts"></ve-pie>
+      <ve-pie v-show="mercPoolData.rows.length > 0" :title="poolTitle" :legend="mercPoolPieLegend" :data="mercPoolData" :settings="mercPoolSettings" :extend="mercPoolExtend" width="800px" height="400px" class="echarts"></ve-pie>
     </el-row>
 
     <el-row>
@@ -45,12 +45,14 @@ export default {
   data() {
     return {
       // 图例位置设置
-      pieLegend: {
-        // type: 'scroll',
+      mercPoolPieLegend: {
+        type: 'scroll',
         orient: 'vertical',
         top: 25,
         right: 0,
         bottom: 20,
+        // data: ['短袖', '休闲裤', '连衣裙', '外套', '羽绒服', '长袖'],
+        // selected: {},
       },
       mercPoolData: {
         columns: ['商品', '交易数量'],
@@ -61,6 +63,18 @@ export default {
           { '商品': '外套', '交易数量': 1170 },
           { '商品': '羽绒服', '交易数量': 970 },
           { '商品': '长袖', '交易数量': 1450 },
+          { '商品': '短袖1', '交易数量': 1141 },
+          { '商品': '休闲裤1', '交易数量': 1499 },
+          { '商品': '连衣裙1', '交易数量': 2260 },
+          { '商品': '外套1', '交易数量': 1170 },
+          { '商品': '羽绒服1', '交易数量': 970 },
+          { '商品': '长袖1', '交易数量': 1450 },
+          { '商品': '短袖2', '交易数量': 1141 },
+          { '商品': '休闲裤2', '交易数量': 1499 },
+          { '商品': '连衣裙2', '交易数量': 2260 },
+          { '商品': '外套2', '交易数量': 1170 },
+          { '商品': '羽绒服2', '交易数量': 970 },
+          { '商品': '长袖2', '交易数量': 1450 },
         ],
       },
       poolTitle: {
