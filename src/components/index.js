@@ -12,6 +12,9 @@ import scrollRequestSelect from './scrollRequestSelect';
 import datetime from './datetime';
 import date from './date';
 import dateRange from './dateRange';
+import imgItem from './imgItem';
+import imgUpload from './imgUpload';
+import imgUploadItem from './imgUploadItem';
 import note from './note'; // 提示
 
 Vue.component(blueLoading.name, blueLoading); // loading加载
@@ -26,4 +29,7 @@ Vue.component(scrollRequestSelect.name, scrollRequestSelect); // 滚动请求sel
 Vue.component(datetime.name, datetime); // 日期年月日小时分钟秒
 Vue.component(date.name, date); // 日期年月日
 Vue.component(dateRange.name, dateRange); // 日期范围选择器
+Vue.component(imgItem.name, imgItem); // 图片显示组件
+Vue.component(imgUpload.name, imgUpload); // 多图上传组件
+Vue.component(imgUploadItem.name, imgUploadItem); // 单张图片上传
 Vue.component(note.name, note); // 提示
