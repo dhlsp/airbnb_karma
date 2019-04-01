@@ -9,6 +9,9 @@ import LangSelect from './LangSelect';
 import mCheckbox from './mCheckbox';
 import noData from './noData';
 import scrollRequestSelect from './scrollRequestSelect';
+import datetime from './datetime';
+import date from './date';
+import dateRange from './dateRange';
 import note from './note'; // 提示
 
 Vue.component(blueLoading.name, blueLoading); // loading加载
@@ -20,4 +23,7 @@ Vue.component(noRequestSelect.name, noRequestSelect); // 没有请求的select
 Vue.component(LangSelect.name, LangSelect); // 选择语言
 Vue.component(mCheckbox.name, mCheckbox); // 单选按钮
 Vue.component(scrollRequestSelect.name, scrollRequestSelect); // 滚动请求select
+Vue.component(datetime.name, datetime); // 日期年月日小时分钟秒
+Vue.component(date.name, date); // 日期年月日
+Vue.component(dateRange.name, dateRange); // 日期范围选择器
 Vue.component(note.name, note); // 提示

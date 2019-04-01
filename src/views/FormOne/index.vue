@@ -31,6 +31,11 @@
           <el-time-picker type="fixed-time" placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
         </el-col>
       </el-form-item>
+      <el-form-item label="活动时间选择">
+        <date-range :startTime.sync="form.start_time" :endTime.sync="form.end_time"></date-range>
+        <date v-model="form.time"></date>
+        <datetime v-model="form.datetime"></datetime>
+      </el-form-item>
       <el-form-item label="活动开启">
         <el-switch v-model="form.delivery" active-value="1" inactive-value="0"></el-switch>
       </el-form-item>
@@ -276,6 +281,10 @@ export default {
         resource: '',
         desc: '',
         org_req_no: '',
+        start_time: '',
+        end_time: '',
+        time: '',
+        datetime: '',
       },
     };
   },
