@@ -1,5 +1,5 @@
 <template>
-  <el-date-picker v-model="time" type="datetime" :placeholder="$t('请选择日期时间')" size="small" format="yyyy-MM-dd hh:mm:ss" value-format="yyyy-MM-dd hh:mm:ss" @change="getDate" class="date"></el-date-picker>
+  <el-date-picker v-model="time" type="datetime" :placeholder="$t('请选择日期时间')" size="small" format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss" @change="getDate" class="date"></el-date-picker>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
   methods: {
     formatDate(date) {
       date = date.replace(/ \+.+/, '');
-      return util.formatDate(date, 'yyyy-MM-dd hh:mm:ss');
+      return util.formatDate(date, 'yyyy-MM-dd HH:mm:ss');
     },
     getDate(val) {
       this.time = val;

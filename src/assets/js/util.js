@@ -34,7 +34,7 @@ const util = {
     let o = {
       'M+': date.getMonth() + 1,
       'd+': date.getDate(),
-      'h+': date.getHours(),
+      'H+': date.getHours(),
       'm+': date.getMinutes(),
       's+': date.getSeconds(),
     };
