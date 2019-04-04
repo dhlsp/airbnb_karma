@@ -52,6 +52,7 @@ module.exports = {
       '@js': resolve('src/assets/js'),
       '@lang': resolve('src/lang'),
       '@filters': resolve('src/filters'),
+      '@config': resolve('src/config'),
     }
   },
   module: {
