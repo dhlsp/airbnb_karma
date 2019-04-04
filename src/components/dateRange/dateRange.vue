@@ -14,6 +14,44 @@
 </template>
 
 <script>
+import util from '@js/util';
+
+const shortcutGenerate = function (n) {
+  return function (picker) {
+    let start;
+    let end;
+    if (n === '0') {
+      let now = new Date();
+      end = now;
+      start = now;
+    } else if (n === '1') {
+      let now = new Date();
+      now.setTime(now.getTime() - 24 * 60 * 60 * 1000);
+      end = now;
+      start = now;
+    } else {
+      end = new Date();
+      start = new Date();
+      start.setTime(start.getTime() - (n - 1) * 24 * 60 * 60 * 1000);
+    }
+    if (picker) {
+      picker.$emit('pick', [start, end]);
+    } else {
+      return [start, end];
+    }
+  };
+};
+
+const dateMap = {
+  '0': '今天',
+  '1': '昨天',
+  '3': '最近三天',
+  '7': '最近一周',
+  '30': '最近一个月',
+  '60': '最近两个月',
+  '90': '最近三个月',
+};
+
 export default {
   name: 'dateRange',
   props: {
@@ -25,50 +63,40 @@ export default {
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      default: '1,7,30,90',
+    },
+    disabledDate: Boolean,
+    initDiffDay: String, // 例如：7 初始化时间为7天范围
+  },
+  data() {
+    let pickerOptions = {};
+    let shortcuts = [];
+    let type = this.type.split(',');
+    type.forEach((key) => {
+      if (dateMap.hasOwnProperty(key)) {
+        let val = dateMap[key];
+        shortcuts.push({
+          text: this.$t(val),
+          onClick: shortcutGenerate(key),
+        });
+      }
+    });
+    if (shortcuts.length) {
+      pickerOptions.shortcuts = shortcuts;
+    }
+    if (this.disabledDate) {
+      pickerOptions.disabledDate = function (time) {
+        return time.getTime() > Date.now();
+      };
+    }
+
+    return {
+      pickerOptions: pickerOptions,
+    };
   },
   computed: {
-    pickerOptions() {
-      return {
-        shortcuts: [
-          {
-            text: this.$t('昨天'),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24);
-              picker.$emit('pick', [start, end]);
-            },
-          },
-          {
-            text: this.$t('最近一周'),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit('pick', [start, end]);
-            },
-          },
-          {
-            text: this.$t('最近一个月'),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-              picker.$emit('pick', [start, end]);
-            },
-          },
-          {
-            text: this.$t('最近三个月'),
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit('pick', [start, end]);
-            },
-          },
-        ],
-      };
-    },
     dateRange: {
       get: function () {
         if (this.startTime !== '' || this.endTime !== '') {
@@ -84,11 +112,17 @@ export default {
           this.$emit('update:startTime', '');
           this.$emit('update:endTime', '');
         }
-        if (this.$listeners.change && val !== null) {
-          this.$emit('change');
-        }
       },
     },
+  },
+  created() {
+    if (this.initDiffDay) {
+      let times = shortcutGenerate(this.initDiffDay)();
+      this.dateRange = times.map((item) => util.timeFormat({
+        type: 'YMD',
+        time: item,
+      }));
+    }
   },
 };
 </script>
