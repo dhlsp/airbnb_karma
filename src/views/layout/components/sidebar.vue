@@ -169,6 +169,16 @@ export default {
           ],
         },
         {
+          name: '树形控件',
+          path: '/tree_controls',
+          children: [
+            {
+              name: '树形控件',
+              path: '/tree_controls',
+            },
+          ],
+        },
+        {
           name: '错误处理',
           path: '/error_404',
           children: [

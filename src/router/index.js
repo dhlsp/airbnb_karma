@@ -34,6 +34,8 @@ const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCh
 const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
 const DialogDrag = (r) => require.ensure([], () => r(require('@views/DialogDrag')), 'DialogDrag');
 const MessageMoney = (r) => require.ensure([], () => r(require('@views/MessageMoney')), 'MessageMoney');
+// Tree树状图
+const TreeControls = (r) => require.ensure([], () => r(require('@views/TreeControls')), 'TreeControls');
 // 错误处理
 const Error404 = (r) => require.ensure([], () => r(require('@views/Error404')), 'Error404');
 
@@ -181,6 +183,11 @@ export default new Router({
           path: 'message_money',
           name: '钱包信息',
           component: MessageMoney,
+        },
+        {
+          path: 'tree_controls',
+          name: '树形控件',
+          component: TreeControls,
         },
         {
           path: 'error_404',
