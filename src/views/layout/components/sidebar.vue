@@ -186,6 +186,10 @@ export default {
               name: '404页面',
               path: '/error_404',
             },
+            {
+              name: '提示',
+              path: '/alert_warning',
+            },
           ],
         },
       ],

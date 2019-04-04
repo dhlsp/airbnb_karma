@@ -38,6 +38,7 @@ const MessageMoney = (r) => require.ensure([], () => r(require('@views/MessageMo
 const TreeControls = (r) => require.ensure([], () => r(require('@views/TreeControls')), 'TreeControls');
 // 错误处理
 const Error404 = (r) => require.ensure([], () => r(require('@views/Error404')), 'Error404');
+const AlertWarning = (r) => require.ensure([], () => r(require('@views/AlertWarning')), 'AlertWarning');
 
 export default new Router({
   routes: [
@@ -193,6 +194,11 @@ export default new Router({
           path: 'error_404',
           name: '404页面',
           component: Error404,
+        },
+        {
+          path: 'alert_warning',
+          name: '提示',
+          component: AlertWarning,
         },
       ],
     },
