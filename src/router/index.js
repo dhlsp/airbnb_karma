@@ -13,6 +13,7 @@ const TableTwo = (r) => require.ensure([], () => r(require('@views/TableTwo')), 
 const TableThree = (r) => require.ensure([], () => r(require('@views/TableThree')), 'TableThree');
 const TableFour = (r) => require.ensure([], () => r(require('@views/TableFour')), 'TableFour');
 const TableFive = (r) => require.ensure([], () => r(require('@views/TableFive')), 'TableFive');
+const TablePage = (r) => require.ensure([], () => r(require('@views/TablePage')), 'TablePage');
 // v-chart图表
 const ChartOne = (r) => require.ensure([], () => r(require('@views/ChartOne')), 'ChartOne');
 const ChartPie = (r) => require.ensure([], () => r(require('@views/ChartPie')), 'ChartPie');
@@ -34,6 +35,7 @@ const MessageCheck = (r) => require.ensure([], () => r(require('@views/MessageCh
 const MessageTabs = (r) => require.ensure([], () => r(require('@views/MessageTabs')), 'MessageTabs');
 const DialogDrag = (r) => require.ensure([], () => r(require('@views/DialogDrag')), 'DialogDrag');
 const MessageMoney = (r) => require.ensure([], () => r(require('@views/MessageMoney')), 'MessageMoney');
+const TimeLine = (r) => require.ensure([], () => r(require('@views/TimeLine')), 'TimeLine');
 // Tree树状图
 const TreeControls = (r) => require.ensure([], () => r(require('@views/TreeControls')), 'TreeControls');
 // 错误处理
@@ -94,6 +96,11 @@ export default new Router({
           path: 'table_five',
           name: '列表合并',
           component: TableFive,
+        },
+        {
+          path: 'table_page',
+          name: '列表页码',
+          component: TablePage,
         },
         {
           path: 'chart_one',
@@ -199,6 +206,11 @@ export default new Router({
           path: 'alert_warning',
           name: '提示',
           component: AlertWarning,
+        },
+        {
+          path: 'time_line',
+          name: '钱包时间线',
+          component: TimeLine,
         },
       ],
     },

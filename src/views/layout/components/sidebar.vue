@@ -76,6 +76,10 @@ export default {
               name: '列表合并',
               path: '/table_five',
             },
+            {
+              name: '列表页码',
+              path: '/table_page',
+            },
           ],
         },
         {
@@ -165,6 +169,10 @@ export default {
             {
               name: '钱包信息',
               path: '/message_money',
+            },
+            {
+              name: '钱包时间线',
+              path: '/time_line',
             },
           ],
         },
