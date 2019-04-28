@@ -9,6 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
+    // assetsPublicPath: './', // 打包
     assetsPublicPath: '/',
     proxyTable: {},
 
@@ -50,6 +51,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
+    // assetsPublicPath: './', // 打包
     assetsPublicPath: '/',
 
     /**

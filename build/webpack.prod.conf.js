@@ -96,6 +96,8 @@ const webpackConfig = merge(baseWebpackConfig, {
           module.resource &&
           /\.js$/.test(module.resource) &&
           module.resource.indexOf(
+            // 打包
+            // path.join(__dirname, '../static')
             path.join(__dirname, '../node_modules')
           ) === 0
         )
