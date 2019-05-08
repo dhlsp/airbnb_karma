@@ -41,8 +41,8 @@ module.exports = {
       ]
     }],
     // allow optionalDependencies
-    "import/no-extraneous-dependencies": "off",
-    "import/no-dynamic-require": "off",
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-dynamic-require': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-console': 'off',
@@ -171,8 +171,36 @@ module.exports = {
     // 禁止连续赋值，比如 a = b = c = 5
     // @off 没必要限制
     'no-multi-assign': 'off',
-    "import/prefer-default-export": "off",
+    'import/prefer-default-export': 'off',
     // @fixable 禁止出现没必要的 bind
     'no-extra-bind': 'error',
+    // 禁止使用指定的对象属性
+    // @off 它用于限制某个具体的 api 不能使用
+    'no-restricted-properties': 'off',
+    // 禁止使用指定的全局变量
+    // @off 它用于限制某个具体的变量名不能使用
+    'no-restricted-globals': 'off',
+    // 必须使用解构
+    // @off 没必要强制要求
+    'prefer-destructuring': 'off',
+    'object-curly-newline': [
+      'error',
+      {
+        multiline: true,
+        consistent: true
+      }
+    ],
+    // @fixable 禁止在 else 内使用 return，必须改为提前结束
+    // @off else 中使用 return 可以使代码结构更清晰
+    'no-else-return': 'off',
+    // @fixable 禁止出现超过三行的连续空行
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        max: 3,
+        maxEOF: 1,
+        maxBOF: 1
+      }
+    ],
   }
 }

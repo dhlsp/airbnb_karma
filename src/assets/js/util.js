@@ -34,7 +34,7 @@ const util = {
     let o = {
       'M+': date.getMonth() + 1,
       'd+': date.getDate(),
-      'H+': date.getHours(),
+      'h+': date.getHours(),
       'm+': date.getMinutes(),
       's+': date.getSeconds(),
     };
@@ -172,6 +172,7 @@ const util = {
 
   // 修复toFixed
   toFixed(n, s) {
+    s = Number(s) || 0;
     // eslint-disable-next-line no-restricted-properties
     let changenum = (parseInt(n * Math.pow(10, s) + 0.5, 10) / Math.pow(10, s)).toString();
     let index = changenum.indexOf('.');
@@ -368,6 +369,30 @@ const util = {
     }
     return str;
   },
+  // 获取时间段
+  getPeriod(startTime, days = 0, type = 'YMD') {
+    let start;
+    if (startTime instanceof Date) {
+      start = startTime;
+    } else {
+      start = new Date();
+      days = startTime;
+    }
+    let end = new Date(start.getTime());
+    end.setTime(start.getTime() + days * 24 * 60 * 60 * 1000);
+    if (start > end) {
+      [start, end] = [end, start];
+    }
+    return [this.timeFormat({
+      time: start,
+      type: type,
+      beforeSeparator: '-',
+    }), this.timeFormat({
+      time: end,
+      type: type,
+      beforeSeparator: '-',
+    })];
+  },
   // add(arg1, arg2) {
   //   let r1;
   //   let r2;
@@ -500,4 +525,15 @@ export function randomStr(n, isPureNum = false) {
     ret += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return ret;
+}
+
+// 获取path
+export function getUrlPath() {
+  let href = location.href;
+  let start = href.indexOf('/#') + 2;
+  let end = href.indexOf('?');
+  if (end === -1) {
+    end = href.length;
+  }
+  return href.slice(start, end);
 }
