@@ -13,6 +13,7 @@
     :multiple="multiple"
     :disabled="disabled"
     @change="change"
+    @focus="focus"
     class="scroll-request-select">
     <el-option
       v-for="item in options"
@@ -77,6 +78,9 @@ export default {
     noClearable: Boolean,
   },
   data() {
+    this.searchs = [];
+    this.search = '';
+    this.isRequest = false;
     return {
       val: this.multiple ? [] : '',
       options: [],
@@ -84,13 +88,11 @@ export default {
       scrollTimer: null,
       page: 1,
       page_size: 20,
-      isRequest: true,
       loadingOption: {
         isSrollLoad: true,
         [this.idKey]: '加载中...',
         [this.nameKey]: '加载中...',
       },
-      search: '',
       customData: [], // 用于外部form的修改
     };
   },
@@ -106,6 +108,13 @@ export default {
       }
     },
     val(val) {
+      if (val === null) {
+        if (this.multiple) {
+          val = [];
+        } else {
+          val = '';
+        }
+      }
       this.$emit('input', this.multiple ? val.join() : val);
     },
     otherParams: {
@@ -170,14 +179,28 @@ export default {
   },
   methods: {
     searchData(search = '') {
+      console.log('search: ', search);
       if (!this.noSearch) {
         this.search = search;
-        this.getFirstOptions();
+        this.searchs.push({
+          search,
+          isSelected: false,
+        });
+        console.log('searchData searchs: ', this.searchs);
+        this.getFirstOptions(true);
       }
     },
-    getFirstOptions() {
+    // 如果是searchData函数里调用getFirstOptions的话，doInsertSearchs是true
+    getFirstOptions(doInsertSearchs = false) {
       if (this.autoClearVal) {
         this.val = this.multiple ? [] : '';
+      }
+      if (!this.noSearch && !doInsertSearchs) {
+        this.searchs.push({
+          search: '',
+          isSelected: false,
+        });
+        console.log('getFirstOptions searchs: ', this.searchs);
       }
       this.page = 1;
       this.isRequest = true;
@@ -187,7 +210,6 @@ export default {
       this.getOptions();
     },
     getOptions() {
-      console.log('getOptions');
       if (!this.isRequest) {
         return false;
       }
@@ -275,11 +297,62 @@ export default {
         });
     },
     change(val) {
+      console.log('change: ', val);
+      if (!this.noSearch) {
+        if (val) {
+          this.searchs[this.searchs.length - 1].isSelected = true;
+        } else {
+          // 如果是点了右边的x
+          this.searchs.forEach((item) => {
+            item.isSelected = false;
+          });
+        }
+      }
       if (!this.$listeners.change) {
         return;
       }
       let item = this.options.find((item) => item[this.idKey] === val);
       this.$emit('change', item);
+    },
+    focus() {
+      if (!this.noSearch) {
+        let lastItem = this.searchs[this.searchs.length - 1];
+        // 如果最后一个已经选择了，就不用触发搜索
+        if (lastItem && lastItem.isSelected) {
+          return;
+        }
+        // 只有一个的时候，如果那个搜索条件不是空字符串，就要用空字符串请求搜索
+        if (this.searchs.length === 1) {
+          if (lastItem.search !== '') {
+            this.searchData();
+          }
+          return;
+        }
+        if (lastItem && !lastItem.isSelected) {
+          let hasVal = this.val.length > 0;
+          // 如果之前有选择过，就要找到那个选择过的搜索条件，再次进行搜索
+          if (hasVal) {
+            for (let i = this.searchs.length - 2; i >= 0; i--) {
+              let item = this.searchs[i];
+              if (item.isSelected) {
+                // 如果最后的搜索条件，和之前被选时的搜索条件不一样，再次用上一次被选时的搜索条件进行请求
+                if (item.search !== lastItem.search) {
+                  this.searchData(item.search);
+                }
+                return;
+              }
+            }
+            if (lastItem.search !== '') {
+              this.searchData();
+            }
+          } else {
+            // 如果没有选择过，并且最后一个搜索条件不是空字符串的话，就要用空字符串搜索
+            if (lastItem.search !== '') {
+              this.searchData();
+            }
+          }
+        }
+      }
     },
   },
 };
