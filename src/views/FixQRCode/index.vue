@@ -55,6 +55,9 @@ import { parseTime } from '@filters';
 import add from './components/add';
 import preview from './components/preview';
 
+// 一次性返回所有列表的保存变量
+let allData = [];
+
 export default {
   name: 'FixQRCode',
   data() {
@@ -72,25 +75,55 @@ export default {
       loadTableData: false,
       tableData: [
         {
-          qr_code: '12312',
+          qr_code: '1',
+        }, {
+          qr_code: '2',
+        }, {
+          qr_code: '3',
+        }, {
+          qr_code: '4',
+        }, {
+          qr_code: '5',
+        }, {
+          qr_code: '6',
+        }, {
+          qr_code: '7',
+        }, {
+          qr_code: '8',
+        }, {
+          qr_code: '9',
+        }, {
+          qr_code: '10',
+        }, {
+          qr_code: '11',
+        }, {
+          qr_code: '12',
         },
       ],
       total: 0,
       qrArr: [],
       qr_code_url: '',
+      isRefresh: false,
     };
   },
   created() {
     this.getTableData();
   },
+  beforeDestroy() {
+    allData = null;
+  },
   methods: {
     search() {
       console.log('this.formData', this.formData);
+      this.isRefresh = true;
       this.$refs.page.setData(1);
     },
     getTableData() {
       this.loadTableData = true;
       console.log('getTableData : this.formData', this.formData);
+      allData = this.tableData;
+      this.total = this.tableData.length;
+      this.tableData = this.tableData.slice(0, this.formData.page_size);
       this.loadTableData = false;
       // this.$api.qrCode_selectQrCodes(this.formData, true)
       //   .then((data) => {
@@ -104,8 +137,25 @@ export default {
       //   });
     },
     handleFn(obj) {
-      Object.assign(this.formData, obj);
-      this.getTableData();
+      // Object.assign(this.formData, obj);
+      // this.getTableData();\
+      console.log('obj', obj);
+      if (obj.hasOwnProperty('page')) {
+        this.formData.page = obj.page;
+      }
+      if (obj.hasOwnProperty('page_size')) {
+        this.formData.page_size = obj.page_size;
+      }
+      let start = (this.formData.page - 1) * this.formData.page_size;
+      let end = this.formData.page * this.formData.page_size;
+      if (!this.isRefresh) {
+        console.log('start, end', start, end);
+        this.tableData = allData.slice(start, end);
+        console.log('this.tableData', this.tableData);
+      } else {
+        this.getTableData();
+        this.isRefresh = false;
+      }
     },
     add() {
       this.openDialog = true;

@@ -33,16 +33,16 @@
       show-icon>
     </el-alert>
     <div style="padding: 10px;text-align: center;">
-      <el-button :plain="true" @click="open2">成功</el-button>
-      <el-button :plain="true" @click="open3">警告</el-button>
-      <el-button :plain="true" @click="open">消息</el-button>
-      <el-button :plain="true" @click="open4">错误</el-button>
+      <el-button type="success" :plain="true" @click="open2">成功</el-button>
+      <el-button type="warning" :plain="true" @click="open3">警告</el-button>
+      <el-button type="info" :plain="true" @click="open">消息</el-button>
+      <el-button type="danger" :plain="true" @click="open4">错误</el-button>
     </div>
     <div style="padding: 10px;text-align: center;">
-      <el-button :plain="true" @click="openMessage">消息</el-button>
-      <el-button :plain="true" @click="openSuccessful">成功</el-button>
-      <el-button :plain="true" @click="openWarning">警告</el-button>
-      <el-button :plain="true" @click="openError">错误</el-button>
+      <el-button type="info" :plain="true" @click="openMessage">消息</el-button>
+      <el-button type="success" :plain="true" @click="openSuccessful">成功</el-button>
+      <el-button type="warning" :plain="true" @click="openWarning">警告</el-button>
+      <el-button type="danger" :plain="true" @click="openError">错误</el-button>
     </div>
     <div>
       <el-button :plain="true" @click="openHTML">使用 HTML 片段</el-button>
