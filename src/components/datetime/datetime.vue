@@ -33,8 +33,11 @@ export default {
   },
   methods: {
     formatDate(date) {
-      date = date.replace(/ \+.+/, '');
-      return util.formatDate(date, 'yyyy-MM-dd HH:mm:ss');
+      if (date) {
+        date = date.replace(/ \+.+/, '');
+        return util.formatDate(date, 'yyyy-MM-dd HH:mm:ss');
+      }
+      return '';
     },
     getDate(val) {
       this.time = val;
