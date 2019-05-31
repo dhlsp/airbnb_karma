@@ -3,13 +3,13 @@
     v-model="val"
     size="small"
     class="no-request-select"
-    :placeholder="tip"
+    :placeholder="$t(tip)"
     :disabled="disabled"
-    clearable>
+    :clearable="!noClearable">
     <el-option
       v-for="item in options"
       :key="item.id"
-      :label="item.name"
+      :label="$t(item.name)"
       :value="item.id">
       <slot :item="item"></slot>
     </el-option>
@@ -34,6 +34,7 @@ export default {
       default: '请选择',
     },
     disabled: Boolean,
+    noClearable: Boolean,
   },
   data() {
     let options = this.noRequestSelectData ? this.noRequestSelectData[this.name] : [];
