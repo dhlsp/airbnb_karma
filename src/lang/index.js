@@ -19,9 +19,8 @@ const messages = {
     ...elementZhLocale,
   },
 };
-
 const i18n = new VueI18n({
-  locale: store.get('language') || 'zh', // set locale
+  locale: process.env.NODE_ENV === 'development' ? (store.get('language') || 'zh') : (process.env.LANGUAGE || 'zh'), // set locale
   messages, // set locale messages
   silentTranslationWarn: true,
 });

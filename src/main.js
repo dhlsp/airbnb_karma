@@ -15,6 +15,7 @@ import './config/v-charts'; // 按需引入charts
 import mock from './mock';
 import i18n from './lang'; // 多语言
 import './components';
+import './mixins'; // mixin
 
 Vue.prototype.mock = mock;
 Vue.use(VueAwesomeSwiper);
