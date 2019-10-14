@@ -80,6 +80,10 @@ export default {
               name: '列表页码',
               path: '/table_page',
             },
+            {
+              name: '列表表头选择',
+              path: '/table_select',
+            },
           ],
         },
         {

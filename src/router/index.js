@@ -14,6 +14,7 @@ const TableThree = (r) => require.ensure([], () => r(require('@views/TableThree'
 const TableFour = (r) => require.ensure([], () => r(require('@views/TableFour')), 'TableFour');
 const TableFive = (r) => require.ensure([], () => r(require('@views/TableFive')), 'TableFive');
 const TablePage = (r) => require.ensure([], () => r(require('@views/TablePage')), 'TablePage');
+const TableSelect = (r) => require.ensure([], () => r(require('@views/TableSelect')), 'TablePage');
 // v-chart图表
 const ChartOne = (r) => require.ensure([], () => r(require('@views/ChartOne')), 'ChartOne');
 const ChartPie = (r) => require.ensure([], () => r(require('@views/ChartPie')), 'ChartPie');
@@ -101,6 +102,11 @@ export default new Router({
           path: 'table_page',
           name: '列表页码',
           component: TablePage,
+        },
+        {
+          path: 'table_select',
+          name: '列表表头选择',
+          component: TableSelect,
         },
         {
           path: 'chart_one',
