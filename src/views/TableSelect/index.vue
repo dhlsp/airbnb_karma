@@ -38,6 +38,7 @@
 const defaultFormThead = ['apple', 'banana'];
 
 export default {
+  name: 'TableSelect',
   data() {
     return {
       filter: false,

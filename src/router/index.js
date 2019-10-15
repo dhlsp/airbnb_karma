@@ -14,7 +14,9 @@ const TableThree = (r) => require.ensure([], () => r(require('@views/TableThree'
 const TableFour = (r) => require.ensure([], () => r(require('@views/TableFour')), 'TableFour');
 const TableFive = (r) => require.ensure([], () => r(require('@views/TableFive')), 'TableFive');
 const TablePage = (r) => require.ensure([], () => r(require('@views/TablePage')), 'TablePage');
-const TableSelect = (r) => require.ensure([], () => r(require('@views/TableSelect')), 'TablePage');
+const TableSelect = (r) => require.ensure([], () => r(require('@views/TableSelect')), 'TableSelect');
+const TableSelectTwo = (r) => require.ensure([], () => r(require('@views/TableSelectTwo')), 'TableSelectTwo');
+const TableSelectCheckbox = (r) => require.ensure([], () => r(require('@views/TableSelectCheckbox')), 'TableSelectCheckbox');
 // v-chart图表
 const ChartOne = (r) => require.ensure([], () => r(require('@views/ChartOne')), 'ChartOne');
 const ChartPie = (r) => require.ensure([], () => r(require('@views/ChartPie')), 'ChartPie');
@@ -107,6 +109,16 @@ export default new Router({
           path: 'table_select',
           name: '列表表头选择',
           component: TableSelect,
+        },
+        {
+          path: 'table_select_two',
+          name: '列表表头选择二',
+          component: TableSelectTwo,
+        },
+        {
+          path: 'table_select_checkbox',
+          name: '列表表头多级选择',
+          component: TableSelectCheckbox,
         },
         {
           path: 'chart_one',

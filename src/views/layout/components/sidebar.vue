@@ -84,6 +84,14 @@ export default {
               name: '列表表头选择',
               path: '/table_select',
             },
+            {
+              name: '列表表头选择二',
+              path: '/table_select_two',
+            },
+            {
+              name: '列表表头多级选择',
+              path: '/table_select_checkbox',
+            },
           ],
         },
         {
