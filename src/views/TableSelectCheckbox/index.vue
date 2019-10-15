@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table border>
+    <el-table :data="tableData" border>
       <el-table-column v-if="checkList[0] === 'A'" label="目标一" header-align="center" align="center">
         <el-table-column v-if="checkOneList[0] === 'A'" prop="id" label="编号" min-width="150" header-align="center" align="center"></el-table-column>
         <el-table-column v-if="checkOneList[1] === 'A'" prop="name" label="名称" min-width="150" header-align="center" align="center"></el-table-column>
@@ -25,7 +25,58 @@
       </el-table-column>
     </el-table>
 
-    <el-button-group class="equip-operation-btn">
+    <div style="padding: 20px">
+      <el-button-group class="equip-operation-btn" style="float: right">
+        <el-button size="small">
+          <i class="el-icon-refresh"></i>
+        </el-button>
+        <el-button size="small">
+          <i class="el-icon-s-grid"></i>
+          <el-dropdown trigger="click" :hide-on-click="false">
+            <i class="el-icon-arrow-down el-icon--right"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item v-for="(item,index) in labelData" :key="index">
+                <el-checkbox :label="item.label" true-label="A" false-label="B" v-model="checkList[index]" checked=""></el-checkbox>
+                <div v-if="index === 0 && checkList[0] === 'A'" style="padding-left: 20px;">
+                  <div v-for="(item1, index1) in labelOneData" :key="index1">
+                    <el-checkbox :label="item1.label" true-label="A" false-label="B" v-model="checkOneList[index1]" checked=""></el-checkbox>
+                  </div>
+                </div>
+                <div v-if="index === 1 && checkList[1] === 'A'" style="padding-left: 20px;">
+                  <div v-for="(item2, index2) in labelTwoData" :key="index2">
+                    <el-checkbox :label="item2.label" true-label="A" false-label="B" v-model="checkTwoList[index2]" checked=""></el-checkbox>
+                  </div>
+                </div>
+                <div v-if="index === 2 && checkList[2] === 'A'" style="padding-left: 20px;">
+                  <div v-for="(item3, index3) in labelThreeData" :key="index3">
+                    <el-checkbox :label="item3.label" true-label="A" false-label="B" v-model="checkThreeList[index3]" checked=""></el-checkbox>
+                  </div>
+                </div>
+                <div v-if="index === 3 && checkList[3] === 'A'" style="padding-left: 20px;">
+                  <div v-for="(item4, index4) in labelFourData" :key="index4">
+                    <el-checkbox :label="item4.label" true-label="A" false-label="B" v-model="checkFourList[index4]" checked=""></el-checkbox>
+                  </div>
+                </div>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </el-button>
+      </el-button-group>
+
+      <div>
+        checkList: {{checkList}}
+        <br>
+        checkOneList: {{checkOneList}}
+        <br>
+        checkTwoList: {{checkTwoList}}
+        <br>
+        checkThreeList: {{checkThreeList}}
+        <br>
+        checkFourList: {{checkFourList}}
+      </div>
+    </div>
+
+    <!-- <el-button-group class="equip-operation-btn" style="float: right">
       <el-button size="small">
         <i class="el-icon-refresh"></i>
       </el-button>
@@ -62,7 +113,7 @@
       </el-button>
     </el-button-group>
 
-    <div style="padding-bottom: 10px">
+    <div style="padding-top: 10px;padding-left: 10px">
       checkList: {{checkList}}
       <br>
       checkOneList: {{checkOneList}}
@@ -72,7 +123,7 @@
       checkThreeList: {{checkThreeList}}
       <br>
       checkFourList: {{checkFourList}}
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -139,6 +190,17 @@ export default {
           label: '操作',
         },
       ],
+
+      tableData: [{
+        id: '1',
+        name: '战三',
+        wareName: '远程软件',
+        type: '运行',
+        createTime: '2019-9-10',
+        createUser: 'admin',
+        changeTime: '2019-10-10',
+        changeUser: '李四',
+      }],
     };
   },
   watch: {
